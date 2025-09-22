@@ -1,0 +1,43 @@
+Develop an API using Node and Express with the following features:
+
+Manage a MySQL table called producto. It will have the following fields:
+
+id: the product code, of type integer (must not be auto-incremented),
+
+descripcion: varchar,
+
+valor: integer.
+
+Manage a MySQL table called movimiento. It will have:
+
+id: auto-incremented,
+
+id_producto: a foreign key referencing the producto table,
+
+descripcion_movimiento: description of the movement,
+
+movimiento: an integer value.
+
+The API must be built using a layered architecture (e.g., routes, controllers, services, models).
+
+Endpoints to handle CRUD operations for products. When deleting a product, it should only allow deletion if the product has no movements.
+
+An endpoint to store a movement. It will:
+
+Search for the product by id,
+
+Save the descripcion_movimiento from the incoming JSON,
+
+Save the movimiento value from the JSON.
+
+In descripcion_movimiento, three types are expected:
+
+A sale: if it's a sale, store the movement as a negative integer, and return the total sale value to the client.
+
+A transfer: if it's a transfer, also store the movement as a negative integer (e.g., from one warehouse to another).
+
+A purchase: store the movement as a positive integer.
+
+An endpoint to display all movements of a specific product. Movements can be either negative or positive.
+
+An endpoint to only display the balance (current stock) of a product.
